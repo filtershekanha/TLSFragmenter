@@ -33,14 +33,14 @@ public class HandshakeFragmenter {
             ProtocolVersion recordVersion = TlsUtils.readVersion(inputStream);
             int recordLength = TlsUtils.readUint16(inputStream);
 
-            logger.info("TLS Record Version: " + recordVersion.getName());
-            logger.info("TLS Record Length: " + recordLength);
-
             // Check if the content type is handshake (0x16)
             if (recordType != 0x16) {
                 return false;
             }
-            logger.info("TLS Record Type is Handshake");
+            logger.info("Content Type is Handshake");
+
+            logger.info("TLS Record Version: " + recordVersion.getName());
+            logger.info("TLS Record Length: " + recordLength);
 
             byte[] handshakeData = new byte[recordLength];
             int bytesRead = inputStream.read(handshakeData);
