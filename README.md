@@ -99,6 +99,18 @@ java -jar TLSFragmenter-<version>.jar
 
 The proxy server will start and listen on the specified port in the `application.properties` file.
 
+## Changelog
+
+[v1.1] 2023-04-30
+
+* Moved logging of TLS record version and length inside the handshake condition, preventing incorrect messages from
+  being logged when the packet is not a valid ClientHello
+* Error logs have been simplified by removing exception stack traces, making logs less confusing for users
+
+[v1.0] 2023-04-29
+
+* Initial release
+
 ## License
 
 [The MIT License (MIT)](https://raw.githubusercontent.com/filtershekanha/TLSFragmenter/master/LICENSE)
