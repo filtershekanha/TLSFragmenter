@@ -27,7 +27,7 @@ exchanged in a TLS handshake.
 When the proxy receives a ClientHello message, it first verifies its validity. If the message is indeed a valid
 ClientHello, the proxy proceeds to fragment the message into smaller pieces, with the number of fragments determined by
 the `app.fragments-number` property. The fragments are then sent to the destination server with a brief delay, as
-specified by the `app.fragments-sleep-ms property`, between each fragment. This approach ensures that the fragments are
+specified by the `app.fragments-sleep-ms` property, between each fragment. This approach ensures that the fragments are
 transmitted with intended delays, increasing the difficulty of detecting and reassembling the original message.
 
 Additionally, the proxy server takes advantage of the `TCP_NODELAY` socket option. This option, when enabled, ensures
