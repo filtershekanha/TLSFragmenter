@@ -85,7 +85,7 @@ public class Server {
             try {
                 clientSocket.close();
             } catch (IOException closeException) {
-                logger.error("Error closing client socket", closeException);
+                logger.error("Error closing client socket");
             }
         }
     }
@@ -116,18 +116,17 @@ public class Server {
                 out.write(buffer, 0, bytesRead);
             }
         } catch (SocketTimeoutException e) {
-            logger.warn("Socket read timed out", e);
+            logger.warn("Socket read timed out");
         } catch (SocketException e) {
             logger.info("Socket closed");
-            e.printStackTrace();
         } catch (IOException e) {
-            logger.error("Error copying data", e);
+            logger.error("Error copying data: " + e.getMessage());
         } finally {
             try {
                 src.close();
                 dest.close();
             } catch (IOException e) {
-                logger.error("Error closing sockets", e);
+                logger.error("Error closing sockets: " + e.getMessage());
             }
         }
     }

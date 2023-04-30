@@ -191,7 +191,7 @@ public class HandshakeFragmenter {
             try {
                 Thread.sleep(fragmentsSleep);
             } catch (InterruptedException e) {
-                logger.error("Error sleeping between fragments", e);
+                logger.error("Error sleeping between fragments");
             }
         }
 
